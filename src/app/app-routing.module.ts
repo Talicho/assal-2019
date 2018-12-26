@@ -5,7 +5,7 @@ import { ExpositoresComponent } from './pages/expositores/expositores.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'expositores', component: ExpositoresComponent },
+  { path: 'expositores/:id', component: ExpositoresComponent },
   { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
 

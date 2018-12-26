@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatosService } from './services/datos.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'assal2019';
+  constructor( public datosService: DatosService) {
+  }
 }
