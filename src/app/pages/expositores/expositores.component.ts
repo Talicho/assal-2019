@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatosService } from '../../services/datos.service';
-import { ExpositorDescripcion } from '../../interfaces/expositor.detalle.interface';
+import { Expositor } from '../../interfaces/expositor.interface';
 
 @Component({
   selector: 'app-expositores',
@@ -10,7 +10,7 @@ import { ExpositorDescripcion } from '../../interfaces/expositor.detalle.interfa
 })
 export class ExpositoresComponent implements OnInit {
 
-  expositor: ExpositorDescripcion;
+  expositor: Expositor;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,9 +21,10 @@ export class ExpositoresComponent implements OnInit {
     this.route.params
       .subscribe(parametros => {
         this.datosService.getExpositor(parametros['id'])
-          .subscribe( (expositor: ExpositorDescripcion) => {
+          .subscribe( (expositor: Expositor) => {
             this.expositor = expositor;
           });
       });
   }
+
 }

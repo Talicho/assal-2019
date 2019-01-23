@@ -1,439 +1,189 @@
+<!--========================== Sección Introducción ============================-->
+
 <section id="intro">
     <div class="intro-container wow fadeIn">
-        <h1 class="mb-4 pb-0">The Annual<br><span>Marketing</span> Conference</h1>
-        <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-        <a href="#about" class="about-btn scrollto">About The Event</a>
+        <a href="#intro" class="scrollto">
+            <img src="assets/img/logo_home.png" alt="" title="" style="width:60%;">
+        </a>
+        <p class="mb-4 pb-0">2 de abril de 2019, La Paz, Bolivia</p>
+        <h2 id="demo" style="color:#FFF; display: block;margin-left: auto;margin-right: auto; font-weight:normal;"></h2>
+        <p class="mb-4 pb-0">Organizado por la APS</p>
+        <a href="https://www.youtube.com/watch?v=ALgE-aAUgxI" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+        <a href="#about" class="about-btn scrollto">Acerca de la conferencia</a>
     </div>
 </section>
 
-<main id="main">
 
-    <!--==========================
-    About Section
-  ============================-->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>About The Event</h2>
-                    <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in est ut optio sequi unde.</p>
-                </div>
-                <div class="col-lg-3">
-                    <h3>Where</h3>
-                    <p>Downtown Conference Center, New York</p>
-                </div>
-                <div class="col-lg-3">
-                    <h3>When</h3>
-                    <p>Monday to Wednesday<br>10-12 December</p>
+
+<!--========================== Sección acerca de ============================-->
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Acerca del evento</h2>
+                <p><i class="texto">En nombre de la Asociación de Supervisores de Seguros de América Latina
+              (ASSAL), nos
+              complace invitarlo a Ud. y al personal de su institución a participar de la Conferencia
+              y Asamblea
+              Anual 2019, que se llevará a cabo en la ciudad de La Paz - Bolivia del 2 al 5 de
+              abril de 2019.</i></p>
+                <p><i class="texto">Este evento abordará, temas como los microseguros, seguros inclusivos,
+              riesgos del
+              cambio climático y el sector Asegurador, Supervisión Basada en Gestión de Riesgos,
+              Gobierno
+              Corporativo, Legitimación de Ganancias Ilícitas, Lavado de Dinero, Terrorismo y Delitos
+              Precedentes,
+              entre otra información relevante.</i></p>
+            </div>
+            <div class="col-lg-2">
+                <h2>Donde</h2>
+                <p><i class="texto">El evento se desarrollará en la ciudad de<br> La Paz - Bolivia</i></p>
+            </div>
+            <div class="col-lg-2">
+                <h2>Cuando</h2>
+                <p><i class="texto">Del 2 al 5 de abril</i></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--========================== Sección Expositores ============================-->
+
+<section id="speakers" class="wow fadeInUp service-area">
+    <div class="container">
+        <div class="section-header">
+            <h2>Expositores del Evento</h2>
+            <p>Aquí están algunos de nuestros expositores.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6" *ngFor="let expositor of datosService.expositores; index as i">
+                <div class="speaker">
+                    <img src="{{expositor.img}}" alt="Speaker 1" class="img-fluid">
+                    <div class="details">
+                        <h3><a routerLink="/expositores/{{ i }}">
+                  {{expositor.nombre}}</a>
+                        </h3>
+                        <p>{{expositor.institucion}}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--==========================
-    Speakers Section
-  ============================-->
-    <section id="speakers" class="wow fadeInUp service-area">
-        <div class="container">
-            <div class="section-header">
-                <h2>Event Speakers</h2>
-                <p>Here are some of our speakers</p>
-            </div>
+<!--========================== Sección Agenda ============================-->
 
-            <div class="row">
-                <div class="col-lg-4 col-md-6" *ngFor="let expositor of datosService.expositores">
-                    <div class="speaker">
-                        <img src="{{expositor.img}}" alt="Speaker 1" class="img-fluid">
-                        <div class="details">
-                            <h3><a routerLink="/expositores/{{ expositor.cod }}">
-                                {{expositor.nombre}}</a>
-                            </h3>
-                            <p>{{expositor.institucion}}</p>
+<section id="schedule" class="section-with-bg">
+    <div class="container wow fadeInUp">
+        <div class="section-header">
+            <h2>Calendario del Evento</h2>
+            <p>Aquí encontrarás el calendario de todas las actividades programadas para el evento</p>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" style="cursor:pointer;" (click)="agendaDia(0)" role="tab" data-toggle="tab">02 de
+            abril</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="cursor:pointer;" (click)="agendaDia(1)" role="tab" data-toggle="tab">03 de abril</a>
+            </li>
+        </ul>
+
+        <h3 class="sub-heading">Toma nota del horario de todas las actividades programadas, los expositores, y los temas que se van a tratar durante las dos fechas establecidas.</h3>
+
+        <div class="tab-content row justify-content-center">
+            <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1" *ngFor="let actividad of agenda">
+                <div class="row schedule-item">
+                    <div class="col-md-2"><time>{{ actividad.hora }}</time></div>
+                    <div class="col-md-10">
+                        <div class="speaker" *ngIf="actividad.img">
+                            <img src="{{ actividad.img }}" alt="Brenden Legros">
                         </div>
+                        <h4>{{ actividad.titulo }}</h4>
+                        <p>{{ actividad.subtitulo }}</p>
+                        <p>{{ actividad.expositor }}</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--==========================
-    Schedule Section
-  ============================-->
-    <section id="schedule" class="section-with-bg">
-        <div class="container wow fadeInUp">
-            <div class="section-header">
-                <h2>Event Schedule</h2>
-                <p>Here is our event schedule</p>
-            </div>
 
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Day 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Day 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Day 3</a>
-                </li>
-            </ul>
+<!--========================== Sección Lugar del evento ============================-->
 
-            <h3 class="sub-heading">Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius necessitatibus voluptatem quis labore perspiciatis quia.</h3>
 
-            <div class="tab-content row justify-content-center">
+<section id="venue" class="wow fadeInUp">
 
-                <!-- Schdule Day 1 -->
-                <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+    <div class="container-fluid">
 
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>09:30 AM</time></div>
-                        <div class="col-md-10">
-                            <h4>Registration</h4>
-                            <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>10:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
-                            </div>
-                            <h4>Keynote <span>Brenden Legros</span></h4>
-                            <p>Facere provident incidunt quos voluptas.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>11:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
-                            </div>
-                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>12:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/3.jpg" alt="Cole Emmerich">
-                            </div>
-                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>02:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/4.jpg" alt="Jack Christiansen">
-                            </div>
-                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>03:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/5.jpg" alt="Alejandrin Littel">
-                            </div>
-                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>04:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/6.jpg" alt="Willow Trantow">
-                            </div>
-                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End Schdule Day 1 -->
-
-                <!-- Schdule Day 2 -->
-                <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>10:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
-                            </div>
-                            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                            <p>Facere provident incidunt quos voluptas.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>11:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
-                            </div>
-                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>12:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/3.jpg" alt="Cole Emmerich">
-                            </div>
-                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>02:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/4.jpg" alt="Jack Christiansen">
-                            </div>
-                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>03:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/5.jpg" alt="Alejandrin Littel">
-                            </div>
-                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>04:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/6.jpg" alt="Willow Trantow">
-                            </div>
-                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End Schdule Day 2 -->
-
-                <!-- Schdule Day 3 -->
-                <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>10:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
-                            </div>
-                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>11:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/3.jpg" alt="Cole Emmerich">
-                            </div>
-                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>12:00 AM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
-                            </div>
-                            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                            <p>Facere provident incidunt quos voluptas.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>02:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/4.jpg" alt="Jack Christiansen">
-                            </div>
-                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>03:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/5.jpg" alt="Alejandrin Littel">
-                            </div>
-                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                        </div>
-                    </div>
-
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>04:00 PM</time></div>
-                        <div class="col-md-10">
-                            <div class="speaker">
-                                <img src="assets/img/speakers/6.jpg" alt="Willow Trantow">
-                            </div>
-                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End Schdule Day 2 -->
-
-            </div>
-
+        <div class="section-header">
+            <h2>Lugar del evento</h2>
+            <p>Información de la ubicación del evento.</p>
         </div>
 
-    </section>
+        <div class="row no-gutters">
+            <div class="col-lg-6 venue-map">
 
-    <!--==========================
-    Venue Section
-  ============================-->
-    <section id="venue" class="wow fadeInUp">
-
-        <div class="container-fluid">
-
-            <div class="section-header">
-                <h2>Event Venue</h2>
-                <p>Event venue location info and gallery</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3124.653565670602!2d-68.09065143917658!3d-16.539055062203907!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe2aa7d0becfe91e!2sCasa+Grande+Hotel!5e0!3m2!1ses-419!2sbo!4v1542748005566" width="600"
+                    height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
 
-            <div class="row no-gutters">
-                <div class="col-lg-6 venue-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0"
-                        style="border:0" allowfullscreen></iframe>
-                </div>
-
-                <div class="col-lg-6 venue-info">
-                    <div class="row justify-content-center">
-                        <div class="col-11 col-lg-8">
-                            <h3>Downtown Conference Center, New York</h3>
-                            <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
-                        </div>
+            <div class="col-lg-6 venue-info">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-lg-8">
+                        <h3>Casa Grande Hotel, La Paz</h3>
+                        <p>El evento se desarrollará los días 17 y 18 de abril en el salón xxx del Casa Grande Hotel, ubicado en la Zona Sur de la ciudad de La Paz, calle 16 N° 8009.</p>
                     </div>
                 </div>
-            </div>
-
-        </div>
-
-        <div class="container-fluid venue-gallery-container">
-            <div class="row no-gutters">
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/1.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/1.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/2.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/2.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/3.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/3.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/4.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/4.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/5.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/5.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/6.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/6.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/7.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/7.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="venue-gallery">
-                        <a href="assets/img/venue-gallery/8.jpg" class="venobox" data-gall="venue-gallery">
-                            <img src="assets/img/venue-gallery/8.jpg" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <!--==========================
-    Hotels Section
-  ============================-->
-    <section id="hotels" class="section-with-bg wow fadeInUp">
 
-        <div class="container">
-            <div class="section-header">
-                <h2>Hotels</h2>
-                <p>Her are some nearby hotels</p>
+<!--========================== Sección información ============================-->
+
+
+<section id="info" class="section-with-bg wow fadeInUp">
+    <div class="container-fluid" id="hotels" class="tab-pane">
+        <div class="section-header">
+            <h2>Información de interés</h2>
+            <p>Información General, hotelera y turística</p>
+        </div>
+        <div class="row no-gutters" align="center">
+            <div class="col-lg-4 col-md-4">
+                <div class="card" style="width: 25rem; height: 30rem">
+                    <img class="card-img-top" src="assets/img/general/bolivia.jpg" alt="Card image cap">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Estado Plurinacional de Bolivia</h5>
+                        <p class="card-text">En este espacio encontrarás información general sobre el Estado Plurinacional de Bolivia, datos económicos, información demográfica, tipo de moneda, información migratoria, clima, etc.</p>
+                        <a routerLink="bolivia-detalle" class="boton mt-auto">+ información</a>
+                        <!-- <a href="https://assal2019.aps.gob.bo/bolivia-detalle" class="boton mt-auto">+ información</a> -->
+                    </div>
+                </div>
             </div>
-
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="hotel">
-                        <div class="hotel-img">
-                            <img src="assets/img/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
-                        </div>
-                        <h3><a href="#">Hotel 1</a></h3>
+            <div class="col-lg-4 col-md-4">
+                <div class="card" style="width: 25rem; height: 30rem">
+                    <img class="card-img-top" src="assets/img/general/uyuni.jpg" alt="Card image cap">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Bolivia destino turístico</h5>
+                        <p class="card-text">Bolivia fue elegida como el Mejor Destino Cultural del Mundo en la versión 24 del World Travel Awards (WTA), aquí encontrarás los lugares turísticos mas cercanos a la ciudad de La Paz, lugar donde se desarrollará el evento.
+                        </p>
+                        <a routerLink="turismo-detalle" class="boton mt-auto">+ información</a>
+                        <!-- <a href="https://assal2019.aps.gob.bo/turismo-detalle" class="boton mt-auto">+ información</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="card" style="width: 25rem; height: 30rem">
+                    <img class="card-img-top" src="assets/img/general/plaza.jpg" alt="Card image cap">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Real Plaza Hotel</h5>
                         <div class="stars">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -441,433 +191,127 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <p>0.4 Mile from the Venue</p>
+                        <p class="card-text">La organización del Comité Permanente, ha logrado precios especiales en el Hotel Real Plaza Hotel, por ello, los participantes podrán realizar sus reservas en este hotel antes del evento.
+                        </p>
+                        <!-- <a href="https://assal2019.aps.gob.bo/hotel-detalle" class="boton mt-auto">+ información</a> -->
+                        <a routerLink="hotel-detalle" class="boton mt-auto">+ información</a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="hotel">
-                        <div class="hotel-img">
-                            <img src="assets/img/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
-                        </div>
-                        <h3><a href="#">Hotel 2</a></h3>
-                        <div class="stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                        </div>
-                        <p>0.5 Mile from the Venue</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="hotel">
-                        <div class="hotel-img">
-                            <img src="assets/img/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
-                        </div>
-                        <h3><a href="#">Hotel 3</a></h3>
-                        <div class="stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <p>0.6 Mile from the Venue</p>
-                    </div>
-                </div>
-
             </div>
         </div>
+    </div>
+</section>
 
-    </section>
 
-    <!--==========================
-    Gallery Section
-  ============================-->
-    <section id="gallery" class="wow fadeInUp">
+<!--========================== Sección de registro ============================-->
 
-        <div class="container">
-            <div class="section-header">
-                <h2>Gallery</h2>
-                <p>Check our gallery from the recent events</p>
-            </div>
+
+<section id="contact" class="section-bg wow fadeInUp">
+
+    <div class="container">
+
+        <div class="section-header">
+            <h2>REGISTRO DE PARTICIPANTES</h2>
+            <p>Puede realizar su registro al evento, llenando el siguiente formulario.</p>
         </div>
 
-        <div class="owl-carousel gallery-carousel">
-            <a href="assets/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/1.jpg" alt=""></a>
-            <a href="assets/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/2.jpg" alt=""></a>
-            <a href="assets/img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/3.jpg" alt=""></a>
-            <a href="assets/img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/4.jpg" alt=""></a>
-            <a href="assets/img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/5.jpg" alt=""></a>
-            <a href="assets/img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/6.jpg" alt=""></a>
-            <a href="assets/img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/7.jpg" alt=""></a>
-            <a href="assets/img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="assets/img/gallery/8.jpg" alt=""></a>
-        </div>
+        <h3 class="sub-heading">El costo de la conferencia es de 500 $us. (Dólares Americanos), una vez que realice el depósito en cualquiera de las cuentas indicadas, debe registrar sus datos personales en el siguiente formulario, antes de participar en la conferencia.</h3>
+        <br>
 
-    </section>
+        <div class="row contact-info">
 
-    <!--==========================
-    Sponsors Section
-  ============================-->
-    <section id="sponsors" class="section-with-bg wow fadeInUp">
-
-        <div class="container">
-            <div class="section-header">
-                <h2>Sponsors</h2>
+            <div class="col-md-4">
+                <blockquote class="generic-blockquote">
+                    <div>
+                        <p>Banco del beneficiario</p>
+                        <h3>Banco Santander<br>Chile</h3>
+                    </div>
+                    <div align="left">
+                        <ul>
+                            <li><strong>Plaza:</strong> Santiago, Chile</li>
+                            <li><strong>Número Cuenta:</strong> 5100081182</li>
+                            <li><strong>Código Swift:</strong> BSCHCLRM</li>
+                            <li><strong>Dirección:</strong> Bandera N ° 140, Chile</li>
+                            <li><strong>Nombre Cuenta:</strong> Asociación de Supervisores de Seguros de América Latina – ASSAL</li>
+                        </ul>
+                    </div>
+                </blockquote>
             </div>
 
-            <div class="row no-gutters sponsors-wrap clearfix">
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/1.png" class="img-fluid" alt="">
+            <div class="col-md-4">
+                <blockquote class="generic-blockquote">
+                    <div>
+                        <p>Banco Intermediario dólares</p>
+                        <h3>WELLS FARGO BANK N.A.<br>New York, U.S.A.</h3>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/2.png" class="img-fluid" alt="">
+                    <div align="left">
+                        <ul>
+                            <li>Remesa vía USA</li>
+                            <li><strong>ABA:</strong> 026005092</li>
+                            <li><strong>Código Swift:</strong> PNBPUS3NNYC</li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/3.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/4.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/5.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/6.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/7.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="sponsor-logo">
-                        <img src="assets/img/sponsors/8.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
+                </blockquote>
             </div>
 
-        </div>
-
-    </section>
-
-    <!--==========================
-    F.A.Q Section
-  ============================-->
-    <section id="faq" class="wow fadeInUp">
-
-        <div class="container">
-
-            <div class="section-header">
-                <h2>F.A.Q </h2>
+            <div class="col-md-4">
+                <blockquote class="generic-blockquote">
+                    <div>
+                        <p>Banco Intermediario euros</p>
+                        <h3> Banco Santander Central Hispano S.A.<br>Madrid, España</h3>
+                    </div>
+                    <div align="left">
+                        <ul>
+                            <li>Remesa en EUROS</li>
+                            <li><strong>Código Swift:</strong> BSCHESMM</li>
+                        </ul>
+                    </div>
+                </blockquote>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <ul id="faq-list">
-
-                        <li>
-                            <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq1" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq2" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                    cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq3" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                                    molestie at elementum eu facilisis sed odio morbi quis
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq4" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                    cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq5" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq6" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque
-                                    diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-                                </p>
-                            </div>
-                        </li>
-
+            <div class="col-md-12" align="left">
+                <blockquote class="generic-blockquote">
+                    <p><strong>Cheque en dólares de Estados Unidos de Norte América</strong></p>
+                    <ul>
+                        <li><strong>A nombre de:</strong> Asociación de Supervisores de América Latina – ASSAL</li>
+                        <li><strong>Plaza:</strong> Santiago, Chile</li>
+                        <li><strong>Dirección:</strong> Secretaría ASSAL, Superintendencia de Valores y Seguros Av. Libertador Bernardo O'Higgins 1449, Piso 9 Santiago – Chile</li>
                     </ul>
-                </div>
+                </blockquote>
             </div>
 
         </div>
 
-    </section>
-
-    <!--==========================
-    Subscribe Section
-  ============================-->
-    <section id="subscribe">
-        <div class="container wow fadeInUp">
-            <div class="section-header">
-                <h2>Newsletter</h2>
-                <p>Rerum numquam illum recusandae quia mollitia consequatur.</p>
-            </div>
-
-            <form method="POST" action="#">
-                <div class="form-row justify-content-center">
-                    <div class="col-auto">
-                        <input type="text" class="form-control" placeholder="Enter your Email">
+        <div align="center">
+            <h3>Formulario de registro</h3>
+        </div>
+        <div>
+            <form (ngSubmit)="guardar()" #forma="ngForm">
+                <div class="form-group">
+                    <input [(ngModel)]="participante.name" type="text" class="form-control" name="name" placeholder="Nombre completo" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <input [(ngModel)]="participante.dni" type="text" name="dni" class="form-control" placeholder="Documento de Identidad" required />
                     </div>
-                    <div class="col-auto">
-                        <button type="submit">Subscribe</button>
+                    <div class="form-group col-md-8">
+                        <input [(ngModel)]="participante.email" type="email" class="form-control" name="email" placeholder="Correo electrónico" required />
                     </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <select [(ngModel)]="participante.pais" name="pais" class="form-control" required>
+                            <option *ngFor="let pais of paises" [ngValue]="pais.value">{{ pais.value }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <input [(ngModel)]="participante.entidad" type="entidad" class="form-control" name="entidad" placeholder="Empresa / Institución" required />
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button [disabled]="!forma.valid" type="submit">Send Message</button>
                 </div>
             </form>
-
-        </div>
-    </section>
-
-    <!--==========================
-    Buy Ticket Section
-  ============================-->
-    <section id="buy-tickets" class="section-with-bg wow fadeInUp">
-        <div class="container">
-
-            <div class="section-header">
-                <h2>Buy Tickets</h2>
-                <p>Velit consequatur consequatur inventore iste fugit unde omnis eum aut.</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card mb-5 mb-lg-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
-                            <h6 class="card-price text-center">$150</h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Community Access</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
-                            </ul>
-                            <hr>
-                            <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="standard-access">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card mb-5 mb-lg-0">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Pro Access</h5>
-                            <h6 class="card-price text-center">$250</h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
-                            </ul>
-                            <hr>
-                            <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pro Tier -->
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Premium Access</h5>
-                            <h6 class="card-price text-center">$350</h6>
-                            <hr>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Workshop Access</li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>After Party</li>
-                            </ul>
-                            <hr>
-                            <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Buy Now</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Modal Order Form -->
-        <div id="buy-ticket-modal" class="modal fade">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Buy Tickets</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="#">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <select id="ticket-type" name="ticket-type" class="form-control">
-                  <option value="">-- Select Your Ticket Type --</option>
-                  <option value="standard-access">Standard Access</option>
-                  <option value="pro-access">Pro Access</option>
-                  <option value="premium-access">Premium Access</option>
-                </select>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn">Buy Now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-
-    </section>
-
-    <!--==========================
-    Contact Section
-  ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-
-        <div class="container">
-
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>Nihil officia ut sint molestiae tenetur.</p>
-            </div>
-
-            <div class="row contact-info">
-
-                <div class="col-md-4">
-                    <div class="contact-address">
-                        <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
-                        <address>A108 Adam Street, NY 535022, USA</address>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-phone">
-                        <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-email">
-                        <i class="ion-ios-email-outline"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@example.com">info@example.com</a></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form">
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-    <!-- #contact -->
-
-</main>
+    </div>
+</section>

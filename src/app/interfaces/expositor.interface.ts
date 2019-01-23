@@ -4,5 +4,5 @@ export interface Expositor {
     institucion: string;
     nombre: string;
     pais: string;
-    cod: number;
+    file: string;
 }
